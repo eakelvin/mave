@@ -11,11 +11,9 @@ export default function Footer() {
           <div className="row mt-5 justify-content-around p-5">
 
             <div className="col-md-3">
-                <h3>Quick Links</h3>
-                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />Home</a>
-                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />Football</a>
-                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />Basketball</a>
-                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />LiveStream</a>
+                <img src='./logo/photo_1.jpg' width={60} height={60} />
+                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />Contact Us</a>
+                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />About Us</a>
             </div>
 
             <div className="col-md-3">
@@ -39,7 +37,7 @@ export default function Footer() {
             </div>
 
           </div>
-            <h3 className='text-center'>&copy; EA Codes || All rights reserved.</h3>
+            <h3 className='text-center'>&copy; Mave Sports || All rights reserved.</h3>
         </div>
   )
 }
