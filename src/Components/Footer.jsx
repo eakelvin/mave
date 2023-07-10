@@ -2,6 +2,7 @@ import React from 'react'
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { AiOutlineTwitter, AiOutlineInstagram, AiFillYoutube } from "react-icons/ai";
+import { Link } from 'react-router-dom';
 
 
 
@@ -10,13 +11,16 @@ export default function Footer() {
         <div className="container-fluid p-3 bg-dark text-light">
           <div className="row mt-5 justify-content-around p-5">
 
-            <div className="col-md-3">
-                <img src='./logo/photo_1.jpg' width={60} height={60} />
+            <div className="col-md-3 pb-5">
+                <img src='./logo/finallogo.jpg' width={100} height={100} />
                 <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />Contact Us</a>
-                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />About Us</a>
+                <Link to='/about'>
+                  <span className='d-block p-2 link-underline-dark link-light'><BsArrowRightCircleFill color='white' size={20} />About Us</span>
+                </Link>
+                
             </div>
 
-            <div className="col-md-3">
+            <div className="col-md-3 pb-5">
               <h3>Follow Us</h3>
               <a className='d-block p-2 link-underline-dark link-light' 
                   href='https://twitter.com/mave_sports007?s=11&t=E31z5H1buzazahfcsKwzJg'>

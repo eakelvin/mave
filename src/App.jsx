@@ -6,6 +6,7 @@ import FootballPage from './Pages/FootballPage'
 import BasketballPage from './Pages/BasketballPage'
 import Livestream from './Pages/Livestream'
 import Errorpage from './Pages/Errorpage'
+import AboutPage from './Pages/AboutPage'
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route path='/football' element={<FootballPage />} />
           <Route path='/basketball' element={<BasketballPage />} />
           <Route path='/livestream' element={<Livestream />} />
+          <Route path='/about' element={<AboutPage />} />
           <Route path='*' element={<Errorpage />} />
         </Routes>
       </Router>

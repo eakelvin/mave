@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <Carousel />
+      {/* <Carousel /> */}
       <Map />
       <Footer />
     </>
