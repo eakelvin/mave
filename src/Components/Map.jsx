@@ -1,7 +1,5 @@
 import React from 'react'
 import data from '../data'
-import FootballData from '../FootballData'
-import BasketballData from '../BasketballData'
 import Trends from './Trends'
 import Football from './Football'
 import Basketball from './Basketball'
@@ -9,10 +7,11 @@ import FootballCover from './FootballCover'
 import BasketballCover from './BasketballCover'
 
 export default function Map() {
-  const firstFourFootball = FootballData.slice(0, 4);
-  const firstFourBball = BasketballData.slice(0, 4);
+  const trendingSport = data.slice(0,3)
+  const firstFourFootball = data.slice(3, 7);
+  const firstFourBball = data.slice(13, 17);
 
-    const trending = data.map(item => {
+    const trending = trendingSport.map(item => {
         return <Trends
           key={item.id}
           {...item}
@@ -32,15 +31,15 @@ export default function Map() {
                 <div className="card">
                     <img src={item.imgUrl} className="card-img-top" alt="..." />
                     <div className='list-group list-group-flush'>
-                      <div className="p-2 d-flex justify-content-around">
+                      {/* <div className="p-2 d-flex justify-content-around">
                         <span>{item.date}</span>
                         <span>By {item.writer}</span>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="card-body">
                         <h5 className="card-title text-center">{item.title}</h5>
                         <p className="card-text">{item.description}</p>
-                        <a href="#" className="btn btn-secondary">Read More</a>
+                        {/* <a href="#" className="btn btn-secondary">Read More</a> */}
                     </div>
                 </div>
               </div>
@@ -55,13 +54,13 @@ export default function Map() {
                     <div className="card">
                         <img src={item.imgUrl} className="card-img-top" alt="..." />
                         <div className="card-body">
-                            <span className='d-flex justify-content-around'>
+                            {/* <span className='d-flex justify-content-around'>
                                 <p className="card-text"><small className="text-body-secondary">{item.date}</small></p>
                                 <p className="card-text"><small className="text-body-secondary">By {item.writer}</small></p>
-                            </span>
+                            </span> */}
                             <h5 className="card-title text-center">{item.title}</h5>
                             <p className="card-text">{item.description}</p>
-                            <a href="#" className="btn btn-info">Read More</a>
+                            {/* <a href="#" className="btn btn-info">Read More</a> */}
                         </div>
                     </div>
                 </div>

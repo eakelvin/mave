@@ -1,10 +1,11 @@
 import React from 'react'
-import BasketballData from '../BasketballData'
+import data from '../data'
 
 export default function Basketball() {
+  const basketballNews = data.slice(13, 30)
   return (
     <>
-      {BasketballData.map((item) => (  
+      {basketballNews.map((item) => (  
         <div key={item.id} className='col'>
             <div className="card">
                 <img src={item.imgUrl} className="card-img-top" alt="..." />
@@ -15,7 +16,7 @@ export default function Basketball() {
                     </span>
                     <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">{item.description}</p>
-                    <a href="#" className="btn btn-info">Read More</a>
+                    {/* <a href="#" className="btn btn-info">Read More</a> */}
                 </div>
             </div>
         </div>

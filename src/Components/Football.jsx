@@ -1,12 +1,13 @@
 import React from 'react'
-import FootballData from '../FootballData'
+import data from '../data'
 
 
 export default function Football() {
+  const footballNews = data.slice(3, 13)
   return (
 
     <>
-    {FootballData.map((item) => (
+    {footballNews.map((item) => (
       <div key={item.id} className="col">
           <div className="card">
               <img src={item.imgUrl} className="card-img-top" alt="..." />
@@ -19,7 +20,7 @@ export default function Football() {
               <div className="card-body">
                   <h5 className="card-title">{item.title}</h5>
                   <p className="card-text">{item.description}</p>
-                  <a href="#" className="btn btn-secondary">Read More</a>
+                  {/* <a href="#" className="btn btn-secondary">Read More</a> */}
               </div>
           </div>
         </div>
