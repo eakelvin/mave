@@ -13,8 +13,8 @@ export default function Footer() {
 
             <div className="col-md-3 pb-5">
                 <img src='./logo/finallogo.jpg' width={100} height={100} />
-                <a className='d-block p-2 link-underline-dark link-light' href='#'><BsArrowRightCircleFill color='white' size={20} />Contact Us</a>
-                <Link to='/about'>
+                <span className='d-block p-2 link-underline-dark link-light'><BsArrowRightCircleFill color='white' size={20} />Contact Us</span>
+                <Link style={{textDecoration: 'none'}} to='/about'>
                   <span className='d-block p-2 link-underline-dark link-light'><BsArrowRightCircleFill color='white' size={20} />About Us</span>
                 </Link>
                 
