@@ -1,11 +1,11 @@
 import React from 'react'
 // import data from '../data'
 import Trends from './Trends'
-import Football from './Football'
 import Basketball from './Basketball'
 import FootballCover from './FootballCover'
 import BasketballCover from './BasketballCover'
 import Fetch from '../Fetch'
+import { Link } from 'react-router-dom'
 
 export default function Map() {
   const { loading, error, data } = Fetch('http://localhost:1337/api/footballs?populate=*')
@@ -34,6 +34,7 @@ export default function Map() {
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
           {data.data.map((football) => (
             <div key={football.id} className="col">
+              <Link>
                 <div className="card">
                     <img 
                       src={`http://localhost:1337${football.attributes.image.data.attributes.url}`} 
@@ -45,6 +46,7 @@ export default function Map() {
                         <p className="card-text">{football.attributes.body}</p>
                     </div>
                 </div>
+              </Link>
               </div>
           ))}
         </div>
@@ -54,6 +56,7 @@ export default function Map() {
             {
               data.data.map((football) => (  
                 <div key={football.id} className='col'>
+                  <Link>
                     <div className="card">
                         <img 
                           src={`http://localhost:1337${football.attributes.image.data.attributes.url}`} 
@@ -64,10 +67,11 @@ export default function Map() {
                                 <p className="card-text"><small className="text-body-secondary">By {football.writer}</small></p>
                             </span> */}
                             <h5 className="card-title text-center">{football.attributes.title}</h5>
-                            <p className="card-text">{football.attributes.body}</p>
+                            <p className="card-text">{football.attributes.body.substring(0, 100)}...</p>
                             {/* <a href="#" className="btn btn-info">Read More</a> */}
                         </div>
                     </div>
+                  </Link>
                 </div>
               ))
             }

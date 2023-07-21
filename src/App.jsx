@@ -7,6 +7,7 @@ import BasketballPage from './Pages/BasketballPage'
 import Livestream from './Pages/Livestream'
 import Errorpage from './Pages/Errorpage'
 import AboutPage from './Pages/AboutPage'
+import FootballDetails from './Pages/FootballDetails'
 
 function App() {
 
@@ -16,13 +17,13 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='/football' element={<FootballPage />} />
+          <Route path='/footballDetails/:id' element={<FootballDetails />} />
           <Route path='/basketball' element={<BasketballPage />} />
           <Route path='/livestream' element={<Livestream />} />
           <Route path='/about' element={<AboutPage />} />
           <Route path='*' element={<Errorpage />} />
         </Routes>
       </Router>
-      
     </>
   )
 }
