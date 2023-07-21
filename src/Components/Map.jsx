@@ -1,45 +1,48 @@
 import React from 'react'
-import data from '../data'
+// import data from '../data'
 import Trends from './Trends'
 import Football from './Football'
 import Basketball from './Basketball'
 import FootballCover from './FootballCover'
 import BasketballCover from './BasketballCover'
+import Fetch from '../Fetch'
 
 export default function Map() {
-  const trendingSport = data.slice(0,3)
-  const firstFourFootball = data.slice(3, 7);
-  const firstFourBball = data.slice(13, 17);
+  const { loading, error, data } = Fetch('http://localhost:1337/api/footballs?populate=*')
+  console.log(data);
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error :( </p>
 
-    const trending = trendingSport.map(item => {
-        return <Trends
-          key={item.id}
-          {...item}
-         />
-      })
+  // const trendingSport = data.slice(0,3)
+  // const firstFourFootball = data.slice(3, 7);
+  // const firstFourBball = data.slice(13, 17);
+
+    // const trending = data.data.map(football => {
+    //     return <Trends
+    //       key={football.id}
+    //       {...football}
+    //      />
+    //   })
       
   return (
     <>
         <div className='row row-cols-lg-3 g-2 p-5'>
-          {trending}
+          {/* {trending} */}
         </div>
 
         <FootballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
-          {firstFourFootball.map((item) => (
-            <div key={item.id} className="col">
+          {data.data.map((football) => (
+            <div key={football.id} className="col">
                 <div className="card">
-                    <img src={item.imgUrl} className="card-img-top" alt="..." />
+                    <img 
+                      src={`http://localhost:1337${football.attributes.image.data.attributes.url}`} 
+                      className="card-img-top" alt="..." />
                     <div className='list-group list-group-flush'>
-                      {/* <div className="p-2 d-flex justify-content-around">
-                        <span>{item.date}</span>
-                        <span>By {item.writer}</span>
-                      </div> */}
                     </div>
                     <div className="card-body">
-                        <h5 className="card-title text-center">{item.title}</h5>
-                        <p className="card-text">{item.description}</p>
-                        {/* <a href="#" className="btn btn-secondary">Read More</a> */}
+                        <h5 className="card-title text-center">{football.attributes.title}</h5>
+                        <p className="card-text">{football.attributes.body}</p>
                     </div>
                 </div>
               </div>
@@ -49,17 +52,19 @@ export default function Map() {
         <BasketballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
             {
-              firstFourBball.map((item) => (  
-                <div key={item.id} className='col'>
+              data.data.map((football) => (  
+                <div key={football.id} className='col'>
                     <div className="card">
-                        <img src={item.imgUrl} className="card-img-top" alt="..." />
+                        <img 
+                          src={`http://localhost:1337${football.attributes.image.data.attributes.url}`} 
+                          className="card-img-top" alt="..." />
                         <div className="card-body">
                             {/* <span className='d-flex justify-content-around'>
-                                <p className="card-text"><small className="text-body-secondary">{item.date}</small></p>
-                                <p className="card-text"><small className="text-body-secondary">By {item.writer}</small></p>
+                                <p className="card-text"><small className="text-body-secondary">{football.date}</small></p>
+                                <p className="card-text"><small className="text-body-secondary">By {football.writer}</small></p>
                             </span> */}
-                            <h5 className="card-title text-center">{item.title}</h5>
-                            <p className="card-text">{item.description}</p>
+                            <h5 className="card-title text-center">{football.attributes.title}</h5>
+                            <p className="card-text">{football.attributes.body}</p>
                             {/* <a href="#" className="btn btn-info">Read More</a> */}
                         </div>
                     </div>
