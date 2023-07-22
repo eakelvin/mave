@@ -6,21 +6,25 @@ import { Link } from 'react-router-dom'
 
 function BasketballPage() {
   const { loading, error, data } = Fetch('http://localhost:1337/api/basketballs?populate=*')
-  if (loading) return <p>Loading...</p>
+  if (loading) return 
+    <div className="spinner-border" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+
   if (error) return <p>Error :( </p>
 
   return (
     <>
       <Navbar />
-      <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
+      <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 p-5'>
         {data.data.map((basketball) => (
-          <Link to={`/basketballDetails/${basketball.id}`} key={basketball.id}> 
+          <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${basketball.id}`} key={basketball.id}> 
           <div className='col'>
               <div className="card">
                   <img 
                     src={`http://localhost:1337${basketball.attributes.image.data.attributes.url}`} 
                     className="card-img-top" alt="..." />
-                  <div className="card-body">
+                  <div className="card-body hove">
                       {/* <span className='d-flex justify-content-around'>
                           <p className="card-text"><small className="text-body-secondary">{basketball.date}</small></p>
                           <p className="card-text"><small className="text-body-secondary">By {basketball.writer}</small></p>

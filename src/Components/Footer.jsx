@@ -3,7 +3,7 @@ import { BsArrowRightCircleFill } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { AiOutlineTwitter, AiOutlineInstagram, AiFillYoutube } from "react-icons/ai";
 import { Link } from 'react-router-dom';
-
+import { IoMail } from "react-icons/io5";
 
 
 export default function Footer() {
@@ -13,15 +13,22 @@ export default function Footer() {
 
             <div className="col-md-3 pb-5">
                 <img src='./logo/finallogo.jpg' width={100} height={100} />
-                <span className='d-block p-2 link-underline-dark link-light'><BsArrowRightCircleFill color='white' size={20} />Contact Us</span>
+                {/* <Link style={{textDecoration: 'none'}} to='/contact'>
+                  <span className='hove d-block p-2 link-underline-dark link-light'>
+                    <BsArrowRightCircleFill color='white' size={20} />Contact Us</span>
+                </Link> */}
+
                 <Link style={{textDecoration: 'none'}} to='/about'>
-                  <span className='d-block p-2 link-underline-dark link-light'><BsArrowRightCircleFill color='white' size={20} />About Us</span>
+                  <span className='hove d-block p-2 link-underline-dark link-light'>
+                    <BsArrowRightCircleFill color='white' size={20} />About Us</span>
                 </Link>
                 
             </div>
 
             <div className="col-md-3 pb-5">
-              <h3>Follow Us</h3>
+              <h3>Contact Us</h3>
+              <small className="text-light p-2">
+                <IoMail size={20} />mavesports007@gmail.com</small>
               <a className='d-block p-2 link-underline-dark link-light' 
                   href='https://twitter.com/mave_sports007?s=11&t=E31z5H1buzazahfcsKwzJg'>
                   <AiOutlineTwitter color='white' size={20} />Twitter

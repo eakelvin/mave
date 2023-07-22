@@ -14,8 +14,8 @@ export default function Navbar() {
             <div className="row gx-0">
                 <div className="col-10 text-center text-lg-start mb-2 mb-lg-0">
                     <div className="d-inline-flex align-items-center" style={{height: "45px"}}>
-                        <small className="me-3 text-light"><BiFootball size={25} />Mave Sports</small>
-                        <small className="me-3 text-light"><IoMail size={20} />mavesports007@gmail.com</small>
+                        {/* <small className="me-3 text-light"><BiFootball size={25} />Mave Sports</small> */}
+                        {/* <small className="me-3 text-light"><IoMail size={20} />mavesports007@gmail.com</small> */}
                     </div>
                 </div>
                 <div className="col-2 text-center text-lg-end">
@@ -41,9 +41,9 @@ export default function Navbar() {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <Link to='/' className="nav-link active" aria-current="page">Home</Link>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
                         <Link to='/football' className="nav-link">Football</Link>
                     </li>
