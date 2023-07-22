@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
-import Fetch from '../Fetch'
+import FetchBasketballData from '../Hooks/FetchBasketball'
 import { useParams } from 'react-router-dom'
 import { Card, Container } from 'react-bootstrap'
 
 function BasketballDetails() {
     const {id} = useParams()
-    const { loading, error, data } = Fetch('http://localhost:1337/api/basketballs/' + id)
+    const { loading, error, data } = FetchBasketballData('http://localhost:1337/api/basketballs/' + id)
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error :( </p>
 

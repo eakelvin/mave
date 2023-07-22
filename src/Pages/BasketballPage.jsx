@@ -1,15 +1,18 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
-import Fetch from '../Fetch'
+import FetchBasketballData from '../Hooks/FetchBasketball'
 import { Link } from 'react-router-dom'
 
 function BasketballPage() {
-  const { loading, error, data } = Fetch('http://localhost:1337/api/basketballs?populate=*')
+  const { loading, error, data } = FetchBasketballData('http://localhost:1337/api/basketballs?populate=*')
+
   if (loading) return 
-    <div className="spinner-border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </div>
+    {
+      <div className="spinner-border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    }
 
   if (error) return <p>Error :( </p>
 

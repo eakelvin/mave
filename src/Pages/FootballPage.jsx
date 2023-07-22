@@ -2,11 +2,11 @@ import React from 'react'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import { Link } from 'react-router-dom'
-import Fetch from '../Fetch'
+import FetchFootballData from '../Hooks/FetchFootball'
 
 function FootballPage() {
   // const footballNews = data.slice(3, 13)
-  const { loading, error, data } = Fetch('http://localhost:1337/api/footballs?populate=*')
+  const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
   // console.log(data);
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :( </p>

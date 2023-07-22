@@ -3,11 +3,11 @@ import Navbar from '../Components/Navbar'
 import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import Fetch from '../Fetch';
+import FetchFootballData from '../Hooks/FetchFootball';
 
 function FootballDetails() {
     const {id} = useParams()
-    const { loading, error, data } = Fetch('http://localhost:1337/api/footballs/' + id)
+    const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id)
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error :( </p>
 

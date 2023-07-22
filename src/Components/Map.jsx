@@ -1,24 +1,30 @@
 import React from 'react'
-import Trends from './Trends'
 import FootballCover from './FootballCover'
 import BasketballCover from './BasketballCover'
-import Fetch from '../Fetch'
+import FetchBasketballData from '../Hooks/FetchBasketball'
+import FetchFootballData from '../Hooks/FetchFootball'
 import { Link } from 'react-router-dom'
 import Spinner from 'react-bootstrap/Spinner'
-import { AiFillFacebook } from "react-icons/ai";
 
 export default function Map() {
-  const { loading, error, data } = Fetch('http://localhost:1337/api/footballs?populate=*')
-  if (loading) return (
-    <Spinner animation="border" role="status">
-      <span className="visually-hidden">Loading...</span>
-    </Spinner>
-  );
-  if (error) return <p>Error :( </p>
+  const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
+  const { loading: basketballLoading, error: basketballError, data: basketballData } = FetchBasketballData('http://localhost:1337/api/basketballs?populate=*')
+
+  if (loading || basketballLoading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
+
+  if (error || basketballError) {
+    return <p>Error :( </p>
+  }
 
   const trendingSport = data.data.slice(0,3)
-  // const firstFourFootball = data.slice(3, 7);
-  // const firstFourBball = data.slice(13, 17);
+  // const firstFourFootball = data.slice(0, 4);
+  // const firstFourBball = data.slice(0, 4);
 
     // const trending = data.data.map(football => {
     //     return <Trends
@@ -31,8 +37,8 @@ export default function Map() {
     <>
         <div className='row row-cols-1 row-cols-lg-3 g-4 p-5'>
           {trendingSport.map((trend) => (
-            <Link style={{textDecoration:'none'}} to=''>
-            <div key={trend.id} className="team-item">
+            <Link style={{textDecoration:'none'}} key={trend.id} to=''>
+            <div className="team-item">
               <div className="img overflow hidden">
                 <img 
                   src={`http://localhost:1337${trend.attributes.image.data.attributes.url}`} alt="" 
@@ -50,9 +56,8 @@ export default function Map() {
         <FootballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
           {data.data.map((football) => (
-            <Link style={{textDecoration: 'none'}} to=''>
-            <div key={football.id} className="team-item col">
-             
+            <Link style={{textDecoration: 'none'}} key={football.id} to=''>
+            <div className="team-item col">
                 <div className="card">
                   <div className='img'>
                     <img 
@@ -71,9 +76,9 @@ export default function Map() {
 
         <BasketballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
-            {data.data.map((football) => (
-                <Link style={{textDecoration: 'none'}} to=''>  
-                <div key={football.id} className='team-item col'>
+            {basketballData.data.map((football) => (
+                <Link style={{textDecoration: 'none'}} key={football.id} to=''>  
+                <div className='team-item col'>
                     <div className="card">
                       <div className='img'>
                         <img 
