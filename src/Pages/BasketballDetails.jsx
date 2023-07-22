@@ -1,13 +1,12 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
-import Card from 'react-bootstrap/Card';
-import { Container } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import Fetch from '../Fetch';
+import Fetch from '../Fetch'
+import { useParams } from 'react-router-dom'
+import { Card, Container } from 'react-bootstrap'
 
-function FootballDetails() {
+function BasketballDetails() {
     const {id} = useParams()
-    const { loading, error, data } = Fetch('http://localhost:1337/api/footballs/' + id)
+    const { loading, error, data } = Fetch('http://localhost:1337/api/basketballs/' + id)
     if (loading) return <p>Loading...</p>
     if (error) return <p>Error :( </p>
 
@@ -15,7 +14,7 @@ function FootballDetails() {
     <>
       <Navbar />
 
-        <Container className='mt-5'>
+      <Container className='mt-5'>
             <Card>
                 <Card.Header as="h5">{data.data.attributes.title}</Card.Header>
                 <Card.Body>
@@ -30,4 +29,4 @@ function FootballDetails() {
   )
 }
 
-export default FootballDetails
+export default BasketballDetails

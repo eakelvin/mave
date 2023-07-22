@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 
 export default function Map() {
   const { loading, error, data } = Fetch('http://localhost:1337/api/footballs?populate=*')
-  console.log(data);
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error :( </p>
 
