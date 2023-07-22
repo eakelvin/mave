@@ -3,11 +3,11 @@ import Navbar from '../Components/Navbar'
 import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import data from '../data';
 
 function FootballDetails() {
     const {id} = useParams()
     // const ball = data.find(item => item.id === id)
+    // const ball = data.filter(item => item.id === id)
 
   return (
     <>
