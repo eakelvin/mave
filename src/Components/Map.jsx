@@ -10,6 +10,9 @@ export default function Map() {
   const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
   const { loading: basketballLoading, error: basketballError, data: basketballData } = FetchBasketballData('http://localhost:1337/api/basketballs?populate=*')
 
+  // const {loading, error, data} = FetchFootballData(`${url}?_sort=createdAt:asc&_limit=2`)
+    // const {loading: basketballLoading, error: basketballError, data: basketballData} = FetchBasketballData(`${url}?_sort=createdAt:desc&_limit=2`)
+
   if (loading || basketballLoading) {
     return (
       <Spinner animation="border" role="status">
@@ -22,21 +25,15 @@ export default function Map() {
     return <p>Error :( </p>
   }
 
-  const trendingSport = data.data.slice(0,3)
+  const trendingFootball = data.data.slice(0,2)
+  const trendingBasketball = basketballData.data.slice(0,2)
   // const firstFourFootball = data.slice(0, 4);
   // const firstFourBball = data.slice(0, 4);
-
-    // const trending = data.data.map(football => {
-    //     return <Trends
-    //       key={football.id}
-    //       {...football}
-    //      />
-    //   })
       
   return (
     <>
-        <div className='row row-cols-1 row-cols-lg-3 g-4 p-5'>
-          {trendingSport.map((trend) => (
+        <div className='row row-cols-1 row-cols-lg-4 g-4 p-5'>
+          {trendingFootball.map((trend) => (
             <Link style={{textDecoration:'none'}} key={trend.id} to=''>
             <div className="team-item">
               <div className="img overflow hidden">
@@ -51,6 +48,22 @@ export default function Map() {
             </div>
             </Link>
           ))}
+
+          {trendingBasketball.map((trend) => (
+              <Link style={{textDecoration:'none'}} key={trend.id} to=''>
+              <div className="team-item">
+                <div className="img overflow hidden">
+                  <img 
+                    src={`http://localhost:1337${trend.attributes.image.data.attributes.url}`} alt="" 
+                    className="img-fluid" />
+                </div>
+              <div className="text-center p-4 hove font-bold">
+                <h5 className="mb-0">{trend.attributes.title}</h5>
+                <small>{trend.attributes.body}</small>
+              </div>
+              </div>
+              </Link>
+            ))}
         </div>
 
         <FootballCover />
