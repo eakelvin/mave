@@ -3,13 +3,23 @@ import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import { Link } from 'react-router-dom'
 import FetchFootballData from '../Hooks/FetchFootball'
+import Spinner from 'react-bootstrap/Spinner'
 
 function FootballPage() {
-  // const footballNews = data.slice(3, 13)
   const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
   // console.log(data);
-  if (loading) return <p>Loading...</p>
-  if (error) return <p>Error :( </p>
+  if (loading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
+
+  if (error) {
+    return <p>Error :( </p>
+  }
+
   return (
     <>
       <Navbar />

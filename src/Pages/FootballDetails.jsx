@@ -4,12 +4,22 @@ import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import FetchFootballData from '../Hooks/FetchFootball';
+import Spinner from 'react-bootstrap/Spinner'
 
 function FootballDetails() {
     const {id} = useParams()
     const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id)
-    if (loading) return <p>Loading...</p>
-    if (error) return <p>Error :( </p>
+    if (loading) {
+      return (
+        <Spinner animation="border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </Spinner>
+      );
+    }
+  
+    if (error) {
+      return <p>Error :( </p>
+    }
 
   return (
     <>
