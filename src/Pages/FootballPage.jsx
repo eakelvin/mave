@@ -4,10 +4,22 @@ import Footer from '../Components/Footer'
 import { Link } from 'react-router-dom'
 import FetchFootballData from '../Hooks/FetchFootball'
 import Spinner from 'react-bootstrap/Spinner'
+import { useQuery, gql } from '@apollo/client'
+
+const football = gql`
+query GetFootball {
+  footballs{
+    data{
+      id
+    }
+  }
+}
+`
 
 function FootballPage() {
   const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
-  // console.log(data);
+  // const { loading, error, data } = useQuery(football)
+  console.log(data);
   if (loading) {
     return (
       <Spinner animation="border" role="status">

@@ -34,7 +34,7 @@ export default function Map() {
     <>
         <div className='row row-cols-1 row-cols-lg-4 g-4 p-5'>
           {trendingFootball.map((trend) => (
-            <Link style={{textDecoration:'none'}} key={trend.id} to=''>
+            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${trend.id}`} key={trend.id}>
             <div className="team-item">
               <div className="img overflow hidden">
                 <img 
@@ -50,7 +50,8 @@ export default function Map() {
           ))}
 
           {trendingBasketball.map((trend) => (
-              <Link style={{textDecoration:'none'}} key={trend.id} to=''>
+               <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${trend.id}`} key={trend.id}> 
+              {/* <Link style={{textDecoration:'none'}} key={trend.id} to=''> */}
               <div className="team-item">
                 <div className="img overflow hidden">
                   <img 
@@ -69,7 +70,7 @@ export default function Map() {
         <FootballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
           {data.data.map((football) => (
-            <Link style={{textDecoration: 'none'}} key={football.id} to=''>
+            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${football.id}`} key={football.id}>
             <div className="team-item col">
                 <div className="card">
                   <div className='img'>
@@ -89,22 +90,22 @@ export default function Map() {
 
         <BasketballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
-            {basketballData.data.map((football) => (
-                <Link style={{textDecoration: 'none'}} key={football.id} to=''>  
+            {basketballData.data.map((basketball) => (
+               <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${basketball.id}`} key={basketball.id}> 
                 <div className='team-item col'>
                     <div className="card">
                       <div className='img'>
                         <img 
-                          src={`http://localhost:1337${football.attributes.image.data.attributes.url}`} 
+                          src={`http://localhost:1337${basketball.attributes.image.data.attributes.url}`} 
                           className="card-img-top" alt="..." />
                         </div>
                         <div className="card-body hove">
                             {/* <span className='d-flex justify-content-around'>
-                                <p className="card-text"><small className="text-body-secondary">{football.date}</small></p>
-                                <p className="card-text"><small className="text-body-secondary">By {football.writer}</small></p>
+                                <p className="card-text"><small className="text-body-secondary">{basketball.date}</small></p>
+                                <p className="card-text"><small className="text-body-secondary">By {basketball.writer}</small></p>
                             </span> */}
-                            <h5 className="card-title text-center">{football.attributes.title}</h5>
-                            <p className="card-text">{football.attributes.body.substring(0, 70)}...</p>
+                            <h5 className="card-title text-center">{basketball.attributes.title}</h5>
+                            <p className="card-text">{basketball.attributes.body.substring(0, 70)}...</p>
                         </div>
                     </div>
                 </div>
