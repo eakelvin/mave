@@ -28,11 +28,11 @@ function BasketballPage() {
                     src={`http://localhost:1337${basketball.attributes.image.data.attributes.url}`} 
                     className="card-img-top" alt="..." />
                   <div className="card-body hove">
-                      {/* <span className='d-flex justify-content-around'>
-                          <p className="card-text"><small className="text-body-secondary">{basketball.date}</small></p>
-                          <p className="card-text"><small className="text-body-secondary">By {basketball.writer}</small></p>
-                      </span> */}
-                      <h5 className="card-title">{basketball.attributes.title}</h5>
+                      <span className='d-flex justify-content-between'>
+                          <p className="card-text fw-bold"><small className="text-body-secondary">{basketball.attributes.author}</small></p>
+                          <p className="card-text"><small className="text-body-secondary">{basketball.attributes.date}</small></p>
+                      </span>
+                      <h5 className="card-title fw-bold">{basketball.attributes.title}</h5>
                       <p className="card-text">{basketball.attributes.body}</p>
                       {/* <a href="#" className="btn btn-info">Read More</a> */}
                   </div>

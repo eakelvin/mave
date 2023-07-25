@@ -8,8 +8,8 @@ import Spinner from 'react-bootstrap/Spinner'
 
 function FootballDetails() {
     const {id} = useParams()
-    const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id)
-    console.log(data);
+    const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id + '?populate=image')
+   
     if (loading) {
       return (
         <Spinner animation="border" role="status">
@@ -28,10 +28,14 @@ function FootballDetails() {
 
         <Container className='mt-5'>
             <Card>
-                <Card.Header as="h5">{data.data.attributes.title}</Card.Header>
+                <Card.Header className='p-5' as="h1">{data.data.attributes.title}</Card.Header>
                 <Card.Body>
                     <Card.Title>
-                        {/* <img src={data.data.attributes.image} alt="" /> */}
+                        <img
+                          className='img-fluid'
+                          src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`} 
+                          // src={data.data.attributes.image}
+                         />
                     </Card.Title>
                     <Card.Text>{data.data.attributes.body}</Card.Text>
                 </Card.Body>

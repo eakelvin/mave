@@ -52,7 +52,11 @@ function FootballPage() {
                       </div>
                     </div> */}
                     <div className="card-body hove">
-                        <h5 className="card-title">{football.attributes.title}</h5>
+                        <h5 className="card-title fw-bold">{football.attributes.title}</h5>
+                        <span className='d-flex'>
+                          <p className='fw-bold'>{football.attributes.author} -</p>
+                          <p className='text-mute ms-2'>{football.attributes.date}</p>
+                        </span>
                         <p className="card-text">{football.attributes.body}</p>
                     </div>
                 </div>

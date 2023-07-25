@@ -27,8 +27,8 @@ export default function Map() {
 
   const trendingFootball = data.data.slice(0,2)
   const trendingBasketball = basketballData.data.slice(0,2)
-  // const firstFourFootball = data.slice(0, 4);
-  // const firstFourBball = data.slice(0, 4);
+  const firstFourFootball = data.data.slice(0, 4);
+  const firstFourBball = basketballData.data.slice(0, 4);
       
   return (
     <>
@@ -41,8 +41,8 @@ export default function Map() {
                   src={`http://localhost:1337${trend.attributes.image.data.attributes.url}`} alt="" 
                   className="img-fluid" />
               </div>
-            <div className="text-center p-4 hove font-bold">
-              <h5 className="mb-0">{trend.attributes.title}</h5>
+            <div className="p-4 hove font-bold">
+              <h5 className="mb-0 fw-bold">{trend.attributes.title}</h5>
               <small>{trend.attributes.body}</small>
             </div>
             </div>
@@ -58,8 +58,8 @@ export default function Map() {
                     src={`http://localhost:1337${trend.attributes.image.data.attributes.url}`} alt="" 
                     className="img-fluid" />
                 </div>
-              <div className="text-center p-4 hove font-bold">
-                <h5 className="mb-0">{trend.attributes.title}</h5>
+              <div className="p-4 hove font-bold">
+                <h5 className="mb-0 fw-bold">{trend.attributes.title}</h5>
                 <small>{trend.attributes.body}</small>
               </div>
               </div>
@@ -69,7 +69,7 @@ export default function Map() {
 
         <FootballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
-          {data.data.map((football) => (
+          {firstFourFootball.map((football) => (
             <Link style={{textDecoration: 'none'}} to={`/footballDetails/${football.id}`} key={football.id}>
             <div className="team-item col">
                 <div className="card">
@@ -79,7 +79,11 @@ export default function Map() {
                       className="card-img-top" alt="..." />
                     </div>
                     <div className="card-body hove">
-                        <h5 className="card-title text-center">{football.attributes.title}</h5>
+                        <h5 className="card-title fw-bold">{football.attributes.title}</h5>
+                        <span className='d-flex'>
+                          <p className='fw-bold'>{football.attributes.author} -</p>
+                          <p className='text-mute ms-2'>{football.attributes.date}</p>
+                        </span>
                         <p className="card-text">{football.attributes.body.substring(0, 70)}</p>
                     </div>
                 </div>
@@ -90,7 +94,7 @@ export default function Map() {
 
         <BasketballCover />
         <div className='row row-cols-1 row-cols-lg-4 row-cols-md-2 g-4 p-5'>
-            {basketballData.data.map((basketball) => (
+            {firstFourBball.map((basketball) => (
                <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${basketball.id}`} key={basketball.id}> 
                 <div className='team-item col'>
                     <div className="card">
@@ -100,11 +104,11 @@ export default function Map() {
                           className="card-img-top" alt="..." />
                         </div>
                         <div className="card-body hove">
-                            {/* <span className='d-flex justify-content-around'>
-                                <p className="card-text"><small className="text-body-secondary">{basketball.date}</small></p>
-                                <p className="card-text"><small className="text-body-secondary">By {basketball.writer}</small></p>
-                            </span> */}
-                            <h5 className="card-title text-center">{basketball.attributes.title}</h5>
+                            <span className='d-flex justify-content-between'>
+                                <p className="card-text fw-bold"><small className="text-body-secondary">{basketball.attributes.author}</small></p>
+                                <p className="card-text"><small className="text-body-secondary">{basketball.attributes.date}</small></p>
+                            </span>
+                            <h5 className="card-title fw-bold">{basketball.attributes.title}</h5>
                             <p className="card-text">{basketball.attributes.body.substring(0, 70)}...</p>
                         </div>
                     </div>
