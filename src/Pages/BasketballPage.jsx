@@ -16,11 +16,13 @@ function BasketballPage() {
 
   if (error) return <p>Error :( </p>
 
+  const sortedData = data.data.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
+
   return (
     <>
       <Navbar />
       <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 p-5'>
-        {data.data.map((basketball) => (
+        {sortedData.map((basketball) => (
           <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${basketball.id}`} key={basketball.id}> 
           <div className='col'>
               <div className="card">

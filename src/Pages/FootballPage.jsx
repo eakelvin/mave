@@ -32,16 +32,17 @@ function FootballPage() {
     return <p>Error :( </p>
   }
 
+  const sortedData = data.data.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
+
   return (
     <>
       <Navbar />
         <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4  g-4 p-5'>
-          {data.data.map((football) => (
+          {sortedData.map((football) => (
             <Link style={{textDecoration: 'none'}} to={`/footballDetails/${football.id}`} key={football.id}>
             <div className="col">
                 <div className="card">
                     <img 
-                      // src={football.imgUrl}
                       src={`http://localhost:1337${football.attributes.image.data.attributes.url}`}  
                       className="card-img-top" alt="..." 
                     />
