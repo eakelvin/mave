@@ -41,6 +41,8 @@ function FootballDetails() {
                 </Card.Body>
             </Card>
         </Container>
+
+       
     </>
   )
 }

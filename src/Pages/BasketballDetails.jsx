@@ -7,7 +7,8 @@ import Spinner from 'react-bootstrap/Spinner'
 
 function BasketballDetails() {
     const {id} = useParams()
-    const { loading, error, data } = FetchBasketballData('http://localhost:1337/api/basketballs/' + id)
+    const { loading, error, data } = FetchBasketballData('http://localhost:1337/api/basketballs/' + id + '?populate=image')
+
     if (loading) {
       return (
         <Spinner animation="border" role="status">
@@ -29,7 +30,9 @@ function BasketballDetails() {
                 <Card.Header as="h5">{data.data.attributes.title}</Card.Header>
                 <Card.Body>
                     <Card.Title>
-                        {/* <img src={data.data.attributes.image} alt="" /> */}
+                        <img
+                          className='' 
+                          src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`} alt="" />
                     </Card.Title>
                     <Card.Text>{data.data.attributes.body}</Card.Text>
                 </Card.Body>

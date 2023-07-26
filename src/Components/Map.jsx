@@ -32,7 +32,29 @@ export default function Map() {
       
   return (
     <>
-        <div className='row row-cols-1 row-cols-lg-4 g-4 p-5'>
+      {/* <div class="container main mt-5">
+    <div class="row">
+        <div class="col-xs-12 col-lg-6">
+           <img src="http://placehold.it/600x400" alt="" class="img-responsive" />
+        </div>
+        <div class="row col-lg-6">
+            <div class="col-6">
+              <img src="http://placehold.it/300x205" alt="" class="" />
+            </div>
+            <div class="col-6">
+              <img src="http://placehold.it/300x205" alt="" class="" />
+            </div>
+            <div class="col-6">
+              <img src="http://placehold.it/300x205" alt="" class="" />
+            </div>
+            <div class="col-6">
+              <img src="http://placehold.it/300x205" alt="" class="" />
+            </div>
+        </div>
+    </div>
+</div> */}
+
+        <div className='row row-cols-2 g-4 p-5'>
           {trendingFootball.map((trend) => (
             <Link style={{textDecoration: 'none'}} to={`/footballDetails/${trend.id}`} key={trend.id}>
             <div className="team-item">
