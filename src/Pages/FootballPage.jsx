@@ -6,15 +6,15 @@ import FetchFootballData from '../Hooks/FetchFootball'
 import Spinner from 'react-bootstrap/Spinner'
 import { useQuery, gql } from '@apollo/client'
 
-const football = gql`
-query GetFootball {
-  footballs{
-    data{
-      id
-    }
-  }
-}
-`
+// const football = gql`
+// query GetFootball {
+//   footballs{
+//     data{
+//       id
+//     }
+//   }
+// }
+// `
 
 function FootballPage() {
   const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')

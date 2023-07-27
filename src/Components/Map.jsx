@@ -32,40 +32,18 @@ export default function Map() {
       
   return (
     <>
-      {/* <div class="container main mt-5">
-    <div class="row">
-        <div class="col-xs-12 col-lg-6">
-           <img src="http://placehold.it/600x400" alt="" class="img-responsive" />
-        </div>
-        <div class="row col-lg-6">
-            <div class="col-6">
-              <img src="http://placehold.it/300x205" alt="" class="" />
-            </div>
-            <div class="col-6">
-              <img src="http://placehold.it/300x205" alt="" class="" />
-            </div>
-            <div class="col-6">
-              <img src="http://placehold.it/300x205" alt="" class="" />
-            </div>
-            <div class="col-6">
-              <img src="http://placehold.it/300x205" alt="" class="" />
-            </div>
-        </div>
-    </div>
-</div> */}
-
-        <div className='row row-cols-2 g-4 p-5'>
+        <div className='row row-cols-1 row-cols-md-2 g-4 p-5'>
           {trendingFootball.map((trend) => (
             <Link style={{textDecoration: 'none'}} to={`/footballDetails/${trend.id}`} key={trend.id}>
-            <div className="team-item">
-              <div className="img overflow hidden">
+            <div className="team-item position-relative">
+              <div className="img overflow-hidden">
                 <img 
                   src={`http://localhost:1337${trend.attributes.image.data.attributes.url}`} alt="" 
                   className="img-fluid" />
               </div>
-            <div className="p-4 hove font-bold">
-              <h5 className="mb-0 fw-bold">{trend.attributes.title}</h5>
-              <small>{trend.attributes.body}</small>
+            <div className="position-absolute pos p-4 fw-bold text-white">
+              <h2 className="mb-0 fw-bold">{trend.attributes.title}</h2>
+              {/* <small>{trend.attributes.body}</small> */}
             </div>
             </div>
             </Link>
@@ -73,16 +51,15 @@ export default function Map() {
 
           {trendingBasketball.map((trend) => (
                <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${trend.id}`} key={trend.id}> 
-              {/* <Link style={{textDecoration:'none'}} key={trend.id} to=''> */}
-              <div className="team-item">
-                <div className="img overflow hidden">
+              <div className="team-item position-relative">
+                <div className="img overflow-hidden">
                   <img 
                     src={`http://localhost:1337${trend.attributes.image.data.attributes.url}`} alt="" 
                     className="img-fluid" />
                 </div>
-              <div className="p-4 hove font-bold">
-                <h5 className="mb-0 fw-bold">{trend.attributes.title}</h5>
-                <small>{trend.attributes.body}</small>
+              <div className="position-absolute pos p-4 text-white">
+                <h2 className="mb-0 fw-bold">{trend.attributes.title}</h2>
+                {/* <small>{trend.attributes.body}</small> */}
               </div>
               </div>
               </Link>

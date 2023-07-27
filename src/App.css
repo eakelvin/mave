@@ -50,9 +50,31 @@
 .team-item:hover img {
     transform: scale(1.1);
 }
-
-.main .img-responsive {
-    margin-bottom: 30px;
+.pos {
+    top: 80%;
+    transform: translateY(-50%);
 }
 
- 
+
+.banner{
+    position: relative;
+    height: 25rem;
+    overflow: hidden;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.7);
+    border:0.1rem solid rgba(0,0,0,0.7);
+}
+ .banner img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+ .banner .content{
+    position: absolute;
+    top: 80%;
+    /* left: 2rem; */
+    transform: translateY(-50%);
+}
+ .banner:hover img{
+    transform: scale(1.2);
+}
+
