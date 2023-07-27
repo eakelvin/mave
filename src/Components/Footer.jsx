@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="row mt-5 justify-content-around p-5">
 
             <div className="col-md-3 pb-5">
-                <img src='./logo/finallogo.jpg' width={100} height={100} />
+                <img src='./finallogo.jpg' width={100} height={100} />
                 {/* <Link style={{textDecoration: 'none'}} to='/contact'>
                   <span className='hove d-block p-2 link-underline-dark link-light'>
                     <BsArrowRightCircleFill color='white' size={20} />Contact Us</span>
