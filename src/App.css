@@ -37,7 +37,7 @@
 
 .team-item .img {
     box-shadow: 0 0 45px rgba(0, 0, 0, 0.08);
-    height: 25rem;
+    height: 60vh;
     width: 100%;
     overflow: hidden;
 }
@@ -53,6 +53,7 @@
 .pos {
     top: 80%;
     transform: translateY(-50%);
+    /* background-color: rgba(0, 0, 0, 0.5); */
 }
 
 
@@ -73,6 +74,7 @@
     top: 80%;
     /* left: 2rem; */
     transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
 }
  .banner:hover img{
     transform: scale(1.2);

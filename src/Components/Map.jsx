@@ -42,8 +42,12 @@ export default function Map() {
                   src={`http://localhost:1337${trend.attributes.image.data.attributes.url}`} alt="" 
                   className="img-fluid" />
               </div>
-            <div className="position-absolute pos p-4 fw-bold text-white">
+            <div className="position-absolute pos p-4 fw-bold text-white ms-2">
               <h2 className="mb-0 fw-bold">{trend.attributes.title}</h2>
+              <span className='d-flex'>
+                <p className='fw-bold'>{trend.attributes.author} -</p>
+                <p className='text-mute ms-2'>{trend.attributes.date}</p>
+              </span>
               {/* <small>{trend.attributes.body}</small> */}
             </div>
             </div>
@@ -61,6 +65,10 @@ export default function Map() {
               <div className="position-absolute pos p-4 text-white">
                 <h2 className="mb-0 fw-bold">{trend.attributes.title}</h2>
                 {/* <small>{trend.attributes.body}</small> */}
+                <span className='d-flex'>
+                <p className='fw-bold'>{trend.attributes.author} -</p>
+                <p className='text-mute ms-2'>{trend.attributes.date}</p>
+                </span>
               </div>
               </div>
               </Link>
