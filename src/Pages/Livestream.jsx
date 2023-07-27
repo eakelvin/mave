@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 function Livestream() {
   const { loading, error, data } = FetchLive('http://localhost:1337/api/livestreams?populate=*')
-  console.log(data);
+  // console.log(data);
   // const sortedData = data.data.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
 
   if (loading) return 
