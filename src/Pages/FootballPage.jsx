@@ -19,7 +19,7 @@ import { useQuery, gql } from '@apollo/client'
 function FootballPage() {
   const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
   // const { loading, error, data } = useQuery(football)
-  console.log(data);
+
   if (loading) {
     return (
       <Spinner animation="border" role="status">

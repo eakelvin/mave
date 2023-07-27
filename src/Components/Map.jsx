@@ -9,6 +9,7 @@ import Spinner from 'react-bootstrap/Spinner'
 export default function Map() {
   const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
   const { loading: basketballLoading, error: basketballError, data: basketballData } = FetchBasketballData('http://localhost:1337/api/basketballs?populate=*')
+  
 
   // const {loading, error, data} = FetchFootballData(`${url}?_sort=createdAt:asc&_limit=2`)
     // const {loading: basketballLoading, error: basketballError, data: basketballData} = FetchBasketballData(`${url}?_sort=createdAt:desc&_limit=2`)
@@ -25,8 +26,8 @@ export default function Map() {
     return <p>Error :( </p>
   }
 
-  const trendingFootball = data.data.slice(0,2)
-  const trendingBasketball = basketballData.data.slice(0,2)
+  const trendingFootball = data.data.slice(-2)
+  const trendingBasketball = basketballData.data.slice(-2)
   const firstFourFootball = data.data.slice(0, 4);
   const firstFourBball = basketballData.data.slice(0, 4);
       
