@@ -1,31 +1,31 @@
 import React from 'react'
+import { useParams } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
-import Card from 'react-bootstrap/Card';
-import { Container } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
-import FetchFootballData from '../Hooks/FetchFootball';
-import Spinner from 'react-bootstrap/Spinner'
-import Footer from '../Components/Footer';
+import Footer from '../Components/Footer'
+import FetchLive from '../Hooks/FetchLive'
+import { Card, Container, Spinner } from 'react-bootstrap'
 
-function FootballDetails() {
+
+function LiveDetails() {
     const {id} = useParams()
-    const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id + '?populate=image')
-   
+    const { loading, error, data } = FetchLive('http://localhost:1337/api/livestreams/' + id + '?populate=image')
+
+     
     if (loading) {
-      return (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      );
-    }
-  
-    if (error) {
-      return <p>Error :( </p>
-    }
+        return (
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </Spinner>
+        );
+      }
+    
+      if (error) {
+        return <p>Error :( </p>
+      }
 
   return (
-    <>
-      <Navbar />
+    <div>
+        <Navbar />
 
         <Container className='mt-5 p-5'>
             <Card>
@@ -50,9 +50,9 @@ function FootballDetails() {
             </Card>
         </Container>
 
-       <Footer />
-    </>
+        <Footer />
+    </div>
   )
 }
 
-export default FootballDetails
+export default LiveDetails

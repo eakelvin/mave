@@ -4,6 +4,7 @@ import FetchBasketballData from '../Hooks/FetchBasketball'
 import { useParams } from 'react-router-dom'
 import { Card, Container } from 'react-bootstrap'
 import Spinner from 'react-bootstrap/Spinner'
+import Footer from '../Components/Footer'
 
 function BasketballDetails() {
     const {id} = useParams()
@@ -25,7 +26,7 @@ function BasketballDetails() {
     <>
       <Navbar />
 
-      <Container className='mt-5'>
+      <Container className='mt-5 p-5'>
             <Card>
                 <Card.Header className='p-5'>
                   <h1>{data.data.attributes.title}</h1>
@@ -44,6 +45,8 @@ function BasketballDetails() {
                 </Card.Body>
             </Card>
         </Container>
+
+        <Footer />
     </>
   )
 }

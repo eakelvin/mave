@@ -27,7 +27,7 @@ function Livestream() {
 
       <div className='row row-cols-1 row-cols-md-2 p-5'>
           {data.data.map((live) => (
-            <Link style={{textDecoration: 'none'}} to='' key={live.id}>
+            <Link style={{textDecoration: 'none'}} to={`/livestreamDetails/${live.id}`} key={live.id}>
               <div className="banner">
                 <img
                   className='img-fluid' 
