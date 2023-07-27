@@ -27,14 +27,20 @@ function BasketballDetails() {
 
       <Container className='mt-5'>
             <Card>
-                <Card.Header as="h5">{data.data.attributes.title}</Card.Header>
+                <Card.Header className='p-5'>
+                  <h1>{data.data.attributes.title}</h1>
+                  <span className='d-flex justify-content-between'>
+                      <p className="card-text fw-bold"><small className="text-body-secondary">{data.data.attributes.author}</small></p>
+                      <p className="card-text"><small className="text-body-secondary">{data.data.attributes.date}</small></p>
+                  </span>
+                  </Card.Header>
                 <Card.Body>
                     <Card.Title>
                         <img
-                          className='' 
+                          className='img-fluid' 
                           src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`} alt="" />
                     </Card.Title>
-                    <Card.Text>{data.data.attributes.body}</Card.Text>
+                    <Card.Text className='mt-3'>{data.data.attributes.body}</Card.Text>
                 </Card.Body>
             </Card>
         </Container>

@@ -66,11 +66,11 @@ export default function Navbar() {
                     </li> */}
                 </ul>
                 <Searchbar />
-                <br />
-                    <div className="btn-group ms-auto">
+                {/* <br /> */}
+                    {/* <div className="btn-group ms-auto">
                         <a href="#" className="btn btn-primary active" aria-current="page">Sign Up</a>
                         <a href="#" className="btn btn-secondary">Login</a>
-                    </div>
+                    </div> */}
                 </div>
             </div>
          </nav>

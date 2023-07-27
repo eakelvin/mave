@@ -28,16 +28,23 @@ function FootballDetails() {
 
         <Container className='mt-5'>
             <Card>
-                <Card.Header className='p-5' as="h1">{data.data.attributes.title}</Card.Header>
+                <Card.Header className='p-5'>
+                  <h1>{data.data.attributes.title}</h1>
+                  <span className='d-flex'>
+                      <p className='fw-bold'>{data.data.attributes.author} -</p>
+                      <p className='text-mute ms-2'>{data.data.attributes.date}</p>
+                  </span>
+                </Card.Header>
                 <Card.Body>
                     <Card.Title>
+                      <div className=''>
                         <img
                           className='img-fluid'
                           src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`} 
-                          // src={data.data.attributes.image}
                          />
+                      </div>
                     </Card.Title>
-                    <Card.Text>{data.data.attributes.body}</Card.Text>
+                    <Card.Text className='mt-3'>{data.data.attributes.body}</Card.Text>
                 </Card.Body>
             </Card>
         </Container>
