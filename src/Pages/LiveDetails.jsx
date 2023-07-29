@@ -2,26 +2,25 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
-import FetchLive from '../Hooks/FetchLive'
+// import FetchLive from '../Hooks/FetchLive'
 import { Card, Container, Spinner } from 'react-bootstrap'
 
 
 function LiveDetails() {
     const {id} = useParams()
-    const { loading, error, data } = FetchLive('http://localhost:1337/api/livestreams/' + id + '?populate=image')
-
-     
-    if (loading) {
-        return (
-          <Spinner animation="border" role="status">
-            <span className="visually-hidden">Loading...</span>
-          </Spinner>
-        );
-      }
+    // const { loading, error, data } = FetchLive('http://localhost:1337/api/livestreams/' + id + '?populate=image')
+  
+    // if (loading) {
+    //     return (
+    //       <Spinner animation="border" role="status">
+    //         <span className="visually-hidden">Loading...</span>
+    //       </Spinner>
+    //     );
+    //   }
     
-      if (error) {
-        return <p>Error :( </p>
-      }
+    //   if (error) {
+    //     return <p>Error :( </p>
+    //   }
 
   return (
     <div>

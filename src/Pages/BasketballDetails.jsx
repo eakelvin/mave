@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
-import FetchBasketballData from '../Hooks/FetchBasketball'
+// import FetchBasketballData from '../Hooks/FetchBasketball'
 import { useParams } from 'react-router-dom'
 import { Card, Container } from 'react-bootstrap'
 import Spinner from 'react-bootstrap/Spinner'
@@ -8,19 +8,19 @@ import Footer from '../Components/Footer'
 
 function BasketballDetails() {
     const {id} = useParams()
-    const { loading, error, data } = FetchBasketballData('http://localhost:1337/api/basketballs/' + id + '?populate=image')
+    // const { loading, error, data } = FetchBasketballData('http://localhost:1337/api/basketballs/' + id + '?populate=image')
 
-    if (loading) {
-      return (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      );
-    }
+    // if (loading) {
+    //   return (
+    //     <Spinner animation="border" role="status">
+    //       <span className="visually-hidden">Loading...</span>
+    //     </Spinner>
+    //   );
+    // }
   
-    if (error) {
-      return <p>Error :( </p>
-    }
+    // if (error) {
+    //   return <p>Error :( </p>
+    // }
 
   return (
     <>

@@ -1,22 +1,14 @@
 import { useState, useEffect } from 'react';
+import Content from './Content';
 
-export default function FetchBasketballData(url) {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [data, setData] = useState([]);
+export default function FetchBasketballData() {
+  const { getBasketball } = Content()
+  const [basketball, setBasketball] = useState([])
 
   useEffect(() => {
-      fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        setLoading(false);
-        setData(data);
-      })
-      .catch(error => {
-        setLoading(false);
-        setError(error);
-      });
-  }, [url]);
+    getBasketball().then((response) => setBasketball(response))
+  }, [])
+ 
 
-  return { loading, error, data };
+  return { basketball };
 }

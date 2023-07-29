@@ -3,25 +3,25 @@ import Navbar from '../Components/Navbar'
 import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-import FetchFootballData from '../Hooks/FetchFootball';
+// import FetchFootballData from '../Hooks/FetchFootball';
 import Spinner from 'react-bootstrap/Spinner'
 import Footer from '../Components/Footer';
 
 function FootballDetails() {
     const {id} = useParams()
-    const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id + '?populate=image')
+    // const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id + '?populate=image')
    
-    if (loading) {
-      return (
-        <Spinner animation="border" role="status">
-          <span className="visually-hidden">Loading...</span>
-        </Spinner>
-      );
-    }
+    // if (loading) {
+    //   return (
+    //     <Spinner animation="border" role="status">
+    //       <span className="visually-hidden">Loading...</span>
+    //     </Spinner>
+    //   );
+    // }
   
-    if (error) {
-      return <p>Error :( </p>
-    }
+    // if (error) {
+    //   return <p>Error :( </p>
+    // }
 
   return (
     <>

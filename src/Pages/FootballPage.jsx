@@ -6,44 +6,21 @@ import FetchFootballData from '../Hooks/FetchFootball'
 import Spinner from 'react-bootstrap/Spinner'
 import { useQuery, gql } from '@apollo/client'
 
-// const football = gql`
-// query GetFootball {
-//   footballs{
-//     data{
-//       id
-//     }
-//   }
-// }
-// `
-
 function FootballPage() {
-  const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
-  // const { loading, error, data } = useQuery(football)
-
-  if (loading) {
-    return (
-      <Spinner animation="border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </Spinner>
-    );
-  }
-
-  if (error) {
-    return <p>Error :( </p>
-  }
-
-  const sortedData = data.data.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
+  const { football } = FetchFootballData()
+  console.log(football);
 
   return (
     <>
       <Navbar />
         <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4  g-4 p-5'>
-          {sortedData.map((football) => (
-            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${football.id}`} key={football.id}>
+          {football?.map((footballItem, index) => (
+            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${footballItem.id}`} key={index}>
             <div className="col">
                 <div className="card">
-                    <img 
-                      src={`http://localhost:1337${football.attributes.image.data.attributes.url}`}  
+                    <img
+                      src={footballItem.url} 
+                      // src={`http://localhost:1337${football.attributes.image.data.attributes.url}`}  
                       className="card-img-top" alt="..." 
                     />
                     {/* <div className='list-group list-group-flush'>
@@ -53,12 +30,19 @@ function FootballPage() {
                       </div>
                     </div> */}
                     <div className="card-body hove">
-                        <h5 className="card-title fw-bold">{football.attributes.title}</h5>
+                        <h5 className="card-title fw-bold">{footballItem.title}</h5>
                         <span className='d-flex'>
-                          <p className='fw-bold'>{football.attributes.author} -</p>
-                          <p className='text-mute ms-2'>{football.attributes.date}</p>
+                          <p className='fw-bold'>{footballItem.author} -</p>
+                          <p className='text-mute ms-2'>{footballItem.date}</p>
                         </span>
-                        <p className="card-text">{football.attributes.body}</p>
+                        {/* <p className="card-text">{football.body.content.value}</p> */}
+                        {footballItem.body && footballItem.body.content && (
+                          <div>
+                            {footballItem.body.content.map((paragraph, index) => (
+                              <p className='card-text' key={index}>{paragraph.content[0].value}</p>
+                            ))}
+                          </div>
+                        )}
                     </div>
                 </div>
               </div>

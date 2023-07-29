@@ -2,24 +2,22 @@ import React from 'react'
 import Navbar from '../Components/Navbar'
 import Footer from '../Components/Footer'
 import { Card, Container } from 'react-bootstrap'
-import FetchLive from '../Hooks/FetchLive'
+// import FetchLive from '../Hooks/FetchLive'
 import { Link } from 'react-router-dom'
 
 
-
 function Livestream() {
-  const { loading, error, data } = FetchLive('http://localhost:1337/api/livestreams?populate=*')
+  // const { loading, error, data } = FetchLive('http://localhost:1337/api/livestreams?populate=*')
   // console.log(data);
-  // const sortedData = data.data.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
 
-  if (loading) return 
-    {
-      <div className="spinner-border" role="status">
-        <span className="visually-hidden">Loading...</span>
-      </div>
-    }
+  // if (loading) return 
+  //   {
+  //     <div className="spinner-border" role="status">
+  //       <span className="visually-hidden">Loading...</span>
+  //     </div>
+  //   }
 
-  if (error) return <p>Error :( </p>
+  // if (error) return <p>Error :( </p>
 
   return (
     <>
