@@ -10,18 +10,12 @@ import AboutPage from './Pages/AboutPage'
 import FootballDetails from './Pages/FootballDetails'
 import BasketballDetails from './Pages/BasketballDetails'
 import LiveDetails from './Pages/LiveDetails'
-// import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
 function App() {
-  // const client = new ApolloClient({
-  //   uri: 'http://localhost:1337/graphql',
-  //   cache: new InMemoryCache()
-  // })
 
   return (
     <>
       <Router>
-      {/* <ApolloProvider client={client}> */}
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='/football' element={<FootballPage />} />
@@ -33,7 +27,6 @@ function App() {
           <Route path='/about' element={<AboutPage />} />
           <Route path='*' element={<Errorpage />} />
         </Routes>
-        {/* </ApolloProvider> */}
       </Router>
     </>
   )
