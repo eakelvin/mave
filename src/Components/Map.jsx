@@ -90,7 +90,8 @@ export default function Map() {
                 <div className='team-item col'>
                     <div className="card">
                       <div className='img'>
-                        <img 
+                        <img
+                          src={basketballItem.image} 
                           // src={`http://localhost:1337${basketball.attributes.image.data.attributes.url}`} 
                           className="card-img-top" alt="..." />
                         </div>

@@ -9,19 +9,7 @@ import Footer from '../Components/Footer';
 
 function FootballDetails() {
     const {id} = useParams()
-    // const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id + '?populate=image')
-   
-    // if (loading) {
-    //   return (
-    //     <Spinner animation="border" role="status">
-    //       <span className="visually-hidden">Loading...</span>
-    //     </Spinner>
-    //   );
-    // }
-  
-    // if (error) {
-    //   return <p>Error :( </p>
-    // }
+    console.log(id);
 
   return (
     <>
@@ -30,10 +18,10 @@ function FootballDetails() {
         <Container className='mt-5 p-5'>
             <Card>
                 <Card.Header className='p-5'>
-                  <h1>{data.data.attributes.title}</h1>
+                  <h1>{id}</h1>
                   <span className='d-flex'>
-                      <p className='fw-bold'>{data.data.attributes.author} -</p>
-                      <p className='text-mute ms-2'>{data.data.attributes.date}</p>
+                      {/* <p className='fw-bold'>{author} -</p> */}
+                      {/* <p className='text-mute ms-2'>{date}</p> */}
                   </span>
                 </Card.Header>
                 <Card.Body>
@@ -41,11 +29,11 @@ function FootballDetails() {
                       <div className=''>
                         <img
                           className='img-fluid'
-                          src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`} 
+                          // src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`} 
                          />
                       </div>
                     </Card.Title>
-                    <Card.Text className='mt-3'>{data.data.attributes.body}</Card.Text>
+                    {/* <Card.Text className='mt-3'>{body}</Card.Text> */}
                 </Card.Body>
             </Card>
         </Container>

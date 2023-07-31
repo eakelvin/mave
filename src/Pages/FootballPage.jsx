@@ -8,18 +8,17 @@ import { useQuery, gql } from '@apollo/client'
 
 function FootballPage() {
   const { football } = FetchFootballData()
-  console.log(football);
 
   return (
     <>
       <Navbar />
         <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4  g-4 p-5'>
-          {football?.map((footballItem, index) => (
-            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${footballItem.id}`} key={index}>
+          {football?.map((footballItem) => (
+            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${footballItem.id}`} key={footballItem.id}>
             <div className="col">
                 <div className="card">
                     <img
-                      src={footballItem.url} 
+                      src={footballItem.image} 
                       // src={`http://localhost:1337${football.attributes.image.data.attributes.url}`}  
                       className="card-img-top" alt="..." 
                     />

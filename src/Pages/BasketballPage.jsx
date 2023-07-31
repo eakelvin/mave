@@ -6,18 +6,17 @@ import FetchBasketballData from '../Hooks/FetchBasketball'
 
 function BasketballPage() {
   const { basketball } = FetchBasketballData()
-  console.log(basketball);
 
   return (
     <>
       <Navbar />
       <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 g-4 p-5'>
-        {basketball.map((basketballItem, index) => (
-          <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${basketballItem.id}`} key={index}> 
+        {basketball.map((basketballItem) => (
+          <Link style={{textDecoration: 'none'}} to={`/basketballDetails/${basketballItem.id}`} key={basketballItem.id}> 
           <div className='col'>
               <div className="card">
                   <img 
-                    src={`${basketballItem.image.url}`} 
+                    src={basketballItem.image} 
                     className="card-img-top" alt="..." />
                   <div className="card-body hove">
                       <span className='d-flex justify-content-between'>

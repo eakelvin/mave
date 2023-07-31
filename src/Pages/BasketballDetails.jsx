@@ -29,19 +29,20 @@ function BasketballDetails() {
       <Container className='mt-5 p-5'>
             <Card>
                 <Card.Header className='p-5'>
-                  <h1>{data.data.attributes.title}</h1>
+                  <h1>{id}</h1>
                   <span className='d-flex justify-content-between'>
-                      <p className="card-text fw-bold"><small className="text-body-secondary">{data.data.attributes.author}</small></p>
-                      <p className="card-text"><small className="text-body-secondary">{data.data.attributes.date}</small></p>
+                      {/* <p className="card-text fw-bold"><small className="text-body-secondary">{author}</small></p> */}
+                      {/* <p className="card-text"><small className="text-body-secondary">{date}</small></p> */}
                   </span>
                   </Card.Header>
                 <Card.Body>
                     <Card.Title>
                         <img
                           className='img-fluid' 
-                          src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`} alt="" />
+                          // src={`http://localhost:1337${data.data.attributes.image.data.attributes.url}`}
+                        />
                     </Card.Title>
-                    <Card.Text className='mt-3'>{data.data.attributes.body}</Card.Text>
+                    {/* <Card.Text className='mt-3'>{body}</Card.Text> */}
                 </Card.Body>
             </Card>
         </Container>

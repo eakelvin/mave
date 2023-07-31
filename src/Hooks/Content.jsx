@@ -18,8 +18,9 @@ const Content = () => {
             })
 
             const cleanEntries = entries.items.map((item) => {
-                const image = item.fields.image.fields
-                return { ...item.fields, image }
+                const id = item.sys.id
+                const image = item.fields.image.fields.file.url
+                return { ...item.fields, id, image }
             })
 
             return cleanEntries
@@ -37,8 +38,9 @@ const Content = () => {
             })
     
             const cleanEntries = entries.items.map((item) => {
-                const image = item.fields.image.fields
-                return { ...item.fields, image }
+                const id = item.sys.id
+                const image = item.fields.image.fields.file.url
+                return { ...item.fields, id, image }
             })
     
             return cleanEntries
