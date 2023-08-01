@@ -9,13 +9,17 @@ import FetchBasketballData from '../Hooks/FetchBasketball'
 export default function Map() {
   const { football } = FetchFootballData()
   const { basketball } = FetchBasketballData()
+
+  if (!football || football.length === 0) {
+    return <div>Loading...</div>;
+  }
  
       
   return (
     <>
         <div className='row row-cols-1 row-cols-md-2 g-4 p-5'>
-          {football.map((trend, index) => (
-            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${trend.id}`} key={index}>
+          {football.map((trend) => (
+            <Link style={{textDecoration: 'none'}} to={`/footballDetails/${trend.id}`} key={trend.id}>
             <div className="team-item position-relative">
               <div className="img overflow-hidden">
                 <img 

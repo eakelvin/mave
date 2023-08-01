@@ -1,15 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import Card from 'react-bootstrap/Card';
 import { Container } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
-// import FetchFootballData from '../Hooks/FetchFootball';
 import Spinner from 'react-bootstrap/Spinner'
 import Footer from '../Components/Footer';
+import Content from '../Hooks/Content';
+
 
 function FootballDetails() {
     const {id} = useParams()
-    console.log(id);
+    const [singleFootball, setSingleFootball] = useState([])
+
+    useEffect(() => {
+      const fetchFootballDetails = async () => {
+        try {
+          const { entry } = await Content().getFootball(id);
+          setSingleFootball(entry);
+        } catch (error) {
+          console.log('Error fetching football details:', error);
+        }
+      };
+  
+      fetchFootballDetails();
+    }, [id]);
+  
+    if (!singleFootball) {
+      return <div>Loading...</div>;
+    }
+  
+    
 
   return (
     <>

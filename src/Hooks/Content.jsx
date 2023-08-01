@@ -1,8 +1,8 @@
 import { createClient } from "contentful";
 
 const Content = () => {
-    const apiKey = process.env.API_KEY
-    const apiSecret = process.env.API_SECRET
+    // const apiKey = process.env.API_KEY
+    // const apiSecret = process.env.API_SECRET
 
     const client = createClient({
         space: "apiKey",
@@ -23,12 +23,21 @@ const Content = () => {
                 return { ...item.fields, id, image }
             })
 
+            // const entry = await client.getEntry(id, {
+            //     content_type: 'football',
+            //     select: 'fields'
+            // })
+            // const cleanEntry = {
+            //     id : entry.sys.id,
+            //     image : entry.fields.image.fields.file.url
+            // }
             return cleanEntries
 
         } catch (error) {
             console.log(`Error fetching footballs: ${error}` );
         }
     }
+
 
     const getBasketball = async () => {
         try {
