@@ -7,12 +7,30 @@ import FetchFootballData from '../Hooks/FetchFootball'
 import FetchBasketballData from '../Hooks/FetchBasketball'
 
 export default function Map() {
-  const { football } = FetchFootballData()
-  const { basketball } = FetchBasketballData()
+  // const { football } = FetchFootballData()
+  // const { basketball } = FetchBasketballData()
 
-  if (!football || football.length === 0) {
-    return <div>Loading...</div>;
+  const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
+  const { loading: basketballLoading, error: basketballError, data: basketballData } = FetchBasketballData('http://localhost:1337/api/basketballs?populate=*')
+  // const {loading, error, data} = FetchFootballData(`${url}?_sort=createdAt:asc&_limit=2`)
+  // const {loading: basketballLoading, error: basketballError, data: basketballData} = FetchBasketballData(`${url}?_sort=createdAt:desc&_limit=2`)
+
+    if (loading || basketballLoading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
   }
+
+  if (error || basketballError) {
+    return <p>Error :( </p>
+  }
+
+  const trendingFootball = data.data.slice(-2)
+  const trendingBasketball = basketballData.data.slice(-2)
+  const firstFourFootball = data.data.slice(0, 4);
+  const firstFourBball = basketballData.data.slice(0, 4);
  
       
   return (

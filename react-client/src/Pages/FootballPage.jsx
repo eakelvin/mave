@@ -7,7 +7,25 @@ import Spinner from 'react-bootstrap/Spinner'
 import { useQuery, gql } from '@apollo/client'
 
 function FootballPage() {
-  const { football } = FetchFootballData()
+  // const { football } = FetchFootballData()
+
+  
+ const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs?populate=*')
+  // const { loading, error, data } = useQuery(football)
+
+  if (loading) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    );
+  }
+
+  if (error) {
+    return <p>Error :( </p>
+  }
+
+  const sortedData = data.data.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
 
   return (
     <>

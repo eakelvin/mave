@@ -5,7 +5,20 @@ import { Link } from 'react-router-dom'
 import FetchBasketballData from '../Hooks/FetchBasketball'
 
 function BasketballPage() {
-  const { basketball } = FetchBasketballData()
+  // const { basketball } = FetchBasketballData()
+
+  const { loading, error, data } = FetchBasketballData('http://localhost:1337/api/basketballs?populate=*')
+
+    if (loading) return 
+      {
+        <div className="spinner-border" role="status">
+          <span className="visually-hidden">Loading...</span>
+        </div>
+      }
+
+    if (error) return <p>Error :( </p>
+
+    const sortedData = data.data.sort((a, b) => new Date(b.attributes.createdAt) - new Date(a.attributes.createdAt))
 
   return (
     <>

@@ -9,6 +9,21 @@ import Content from '../Hooks/Content';
 
 
 function FootballDetails() {
+
+  // const { loading, error, data } = FetchFootballData('http://localhost:1337/api/footballs/' + id + '?populate=image')
+   
+    // if (loading) {
+    //   return (
+    //     <Spinner animation="border" role="status">
+    //       <span className="visually-hidden">Loading...</span>
+    //     </Spinner>
+    //   );
+    // }
+  
+    // if (error) {
+    //   return <p>Error :( </p>
+    // }
+    
     const {id} = useParams()
     const [singleFootball, setSingleFootball] = useState([])
 
